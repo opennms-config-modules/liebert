@@ -1,44 +1,5 @@
 <?xml version="1.0"?>
 <datacollection-group xmlns="https://xmlns.opennms.org/xsd/config/datacollection" name="Liebert">
-
-    <!-- Liebert Resource Types -->
-    <resourceType name="lcUpsInputLine" label="Liebert Input Line Index">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="lcUpsOutputLine" label="Liebert Output Line Index">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="lcUpsBypassLine" label="Liebert Bypass Line Index">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="lsUpsBypassLine" label="Liebert Bypass Line Index">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="ls43cUpsBypassLine" label="Liebert Bypass Line Index">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="lgpEnvTemperatureIdDegF" label="Liebert Temp Index Fahrenheit">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <resourceType name="lgpPwrMeasurementPtIndex" label="Liebert Power Measurement Index"
-                  resourceLabel="Measurement Point ${subIndex(0,1)}, Phase ${subIndex(1,1)}">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-    </resourceType>
-
-    <!-- Liebert SiteNet mibs for discontinued products -->
     <group name="liebert-sitenet" ifType="ignore">
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.2.1" instance="0" alias="lcUpsBatTimeRemain" type="INTEGER"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.2.2" instance="0" alias="lcUpsBatTemperature" type="INTEGER"/>
@@ -50,7 +11,6 @@
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.5.2" instance="0" alias="lcUpsInverterTemp" type="INTEGER"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.6.1" instance="0" alias="lcUpsAlarms" type="Gauge"/>
     </group>
-
     <group name="liebert-sitenet-power" ifType="all">
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.3.6.1.1" instance="lcUpsInputLine" alias="lcUpsInputLine" type="INTEGER"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.1.3.6.1.2" instance="lcUpsInputLine" alias="lcUpsInputVoltage"
@@ -84,20 +44,16 @@
         <mibObj oid=".1.3.6.1.4.1.476.1.1.1.10.13.4.1.3" instance="ls43cUpsBypassLine" alias="ls43cUpsBypassCurr"
                 type="INTEGER"/>
     </group>
-
-    <!-- Liebert mibs -->
     <group name="liebert-basics" ifType="ignore">
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.8.1" instance="0" alias="lgpPwrBrownOutCnt" type="integer"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.8.2" instance="0" alias="lgpPwrBlackOutCnt" type="integer"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.1.18" instance="0" alias="lgpPwrBattTimeRem" type="integer"/>
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.1.19" instance="0" alias="lgpPwrBattCapacity" type="integer"/>
     </group>
-
     <group name="liebert-temp" ifType="all">
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3" instance="lgpEnvTemperatureIdDegF" alias="lgpEnvTempDegF"
                 type="Integer32"/>
     </group>
-
     <group name="liebert-power" ifType="all">
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.2.3.1.6" instance="lgpPwrMeasurementPtIndex" alias="lgpPwrCurrent"
                 type="Integer32"/>
@@ -108,7 +64,6 @@
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.2.3.1.20" instance="lgpPwrMeasurementPtIndex" alias="lgpPwrVolts"
                 type="Integer32"/>
     </group>
-
     <group name="liebert-power-more" ifType="all">
         <mibObj oid=".1.3.6.1.4.1.476.1.42.3.5.2.3.1.14" instance="lgpPwrMeasurementPtIndex" alias="lgpPwrPwrFactor"
                 type="Integer32"/>
@@ -119,7 +74,6 @@
     <systemDef name="Liebert UPS">
         <sysoidMask>.1.3.6.1.4.1.476.</sysoidMask>
         <collect>
-            <includeGroup>mib2-ups-rfc1628</includeGroup>
             <includeGroup>liebert-basics</includeGroup>
             <includeGroup>liebert-temp</includeGroup>
             <includeGroup>liebert-power</includeGroup>
@@ -128,5 +82,4 @@
             <includeGroup>liebert-sitenet-power</includeGroup>
         </collect>
     </systemDef>
-
 </datacollection-group>

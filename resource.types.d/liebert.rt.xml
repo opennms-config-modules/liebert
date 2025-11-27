@@ -1,0 +1,27 @@
+<resource-types>
+    <resourceType name="lcUpsInputLine" label="Liebert Input Line Index">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+    <resourceType name="lcUpsOutputLine" label="Liebert Output Line Index">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+    <resourceType name="lcUpsBypassLine" label="Liebert Bypass Line Index">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+    <resourceType name="ls43cUpsBypassLine" label="Liebert Bypass Line Index">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+    <resourceType name="lgpEnvTemperatureIdDegF" label="Liebert Temp Index Fahrenheit">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+    <resourceType name="lgpPwrMeasurementPtIndex" label="Liebert Power Measurement Index"
+                  resourceLabel="Measurement Point ${subIndex(0,1)}, Phase ${subIndex(1,1)}">
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+    </resourceType>
+</resource-types>
